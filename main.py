@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Feb 26 2017
-Author: Weiping Song
-"""
+
 import os
 import tensorflow as tf
 import pandas as pd

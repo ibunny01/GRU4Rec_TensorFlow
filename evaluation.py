@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Feb 27 2017
-Author: Weiping Song
-"""
+
 import numpy as np
 import pandas as pd
 
 
 def evaluate_sessions_batch(model, train_data, test_data, cut_off=20, batch_size=50, session_key='SessionId', item_key='ItemId', time_key='Time'):
-    
+
     '''
     Evaluates the GRU4Rec network wrt. recommendation accuracy measured by recall@N and MRR@N.
 

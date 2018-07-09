@@ -14,7 +14,6 @@ class GRU4Rec:
     def __init__(self, sess, args):
         self.sess = sess
         self.is_training = args.is_training
-
         self.layers = args.layers
         self.rnn_size = args.rnn_size
         self.n_epochs = args.n_epochs
@@ -30,7 +29,8 @@ class GRU4Rec:
         self.item_key = args.item_key
         self.time_key = args.time_key
         self.grad_cap = args.grad_cap
-        self.n_items = args.n_items 
+        self.n_items = args.n_items
+
         if args.hidden_act == 'tanh':
             self.hidden_act = self.tanh
         elif args.hidden_act == 'relu':
@@ -95,11 +95,14 @@ class GRU4Rec:
         return tf.nn.sigmoid(X)
 
     ############################LOSS FUNCTIONS######################
+
     def cross_entropy(self, yhat):
         return tf.reduce_mean(-tf.log(tf.diag_part(yhat)+1e-24))
+
     def bpr(self, yhat):
         yhatT = tf.transpose(yhat)
         return tf.reduce_mean(-tf.log(tf.nn.sigmoid(tf.diag_part(yhat)-yhatT)))
+
     def top1(self, yhat):
         yhatT = tf.transpose(yhat)
         term1 = tf.reduce_mean(tf.nn.sigmoid(-tf.diag_part(yhat)+yhatT)+tf.nn.sigmoid(yhatT**2), axis=0)

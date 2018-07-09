@@ -9,8 +9,8 @@ import argparse
 import model
 import evaluation
 
-PATH_TO_TRAIN = ' ~/Code/github/RecSys2015/data/yoochoose/processed/rsc15_train_final.txt'
-PATH_TO_TEST = ' ~/Code/github/RecSys2015/data/yoochoose/processed/rsc15_test.txt'
+PATH_TO_TRAIN = '~/Code/github/RecSys2015/data/yoochoose/processed/rsc15_train_final.txt'
+PATH_TO_TEST = '~/Code/github/RecSys2015/data/yoochoose/processed/rsc15_test.txt'
 
 class Args():
     is_training = False
@@ -18,7 +18,7 @@ class Args():
     rnn_size = 200
     n_epochs = 3
     batch_size = 512
-    dropout_p_hidden=1
+    dropout_p_hidden = 1
     learning_rate = 0.0025
     decay = 0.96
     decay_steps = 1e4
